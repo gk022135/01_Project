@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { toast } from "react-toastify";
 
-const BASE_URL = "http://localhost:3000/mern-revision/v1";
+const BASE_URL = "http://localhost:3000/codesy/v1";
 
 function AddEntryExitQr() { //  Don't use async here! may cause infinite render
     const [qrData, setQrData] = useState({

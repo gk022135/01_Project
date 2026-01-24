@@ -24,11 +24,11 @@ function TodoHome() {
     useEffect(async () => {
         const UserEmail = localStorage.getItem('UserData').email
         setEmail(UserEmail);
-        const CurrentTask = await fetch(`http://localhost:3000/mern-revision/v1/get/current-tasks?email=${email}`)
+        const CurrentTask = await fetch(`http://localhost:3000/codesy/v1/get/current-tasks?email=${email}`)
 
         setTodolist(CurrentTask.data)
 
-        const completedTasks = await fetch(`http://localhost:3000/mern-revision/v1/get/all-completed-tasks?email=${email}`)
+        const completedTasks = await fetch(`http://localhost:3000/codesy/v1/get/all-completed-tasks?email=${email}`)
 
         setCompletedTasks(completedTasks.data)
 
@@ -60,7 +60,7 @@ function TodoHome() {
             console.log("Task added:", newTaskWithTimestamp);
             //here you have to make the api call and setTOdo data
 
-            const addnewTask = await fetch('http://localhost:3000/mern-revision/v1/add-new-task', {
+            const addnewTask = await fetch('http://localhost:3000/codesy/v1/add-new-task', {
                 headers :{
                     method : POST,
                     BODY : {
@@ -87,7 +87,7 @@ function TodoHome() {
             dispatch(deletetask({ index, percentage, completedAt }));
 
             //task comletion api called here
-            const MarkCompleted = await fetch ('http://localhost:3000/mern-revision/v1/put/mark-current-task-completed',
+            const MarkCompleted = await fetch ('http://localhost:3000/codesy/v1/put/mark-current-task-completed',
                 {
                     headers : {
                         methode: PUT,
@@ -109,7 +109,7 @@ function TodoHome() {
 
     //Delete task from the current Task with api call and maintiane the state
     async function DeleteTheTask (email){
-            const deleteTheTask = await fetch('http://localhost:3000/mern-revision/v1/put/delete-current-task', {
+            const deleteTheTask = await fetch('http://localhost:3000/codesy/v1/put/delete-current-task', {
                 headers : {
                     method : PUT,
                     body : {

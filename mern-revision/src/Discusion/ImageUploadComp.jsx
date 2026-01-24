@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { RiImageFill } from "react-icons/ri";
 
 function ImageUpload() {
-    const Upload_Url = "http://localhost:3000/mern-revision/v1//upload-the-image";
+    const Upload_Url = "http://localhost:3000/codesy/v1//upload-the-image";
     const [selectedFile, setSelectedFile] = useState(null);
     const [preview, setPreview] = useState(null);
     const [uploading, setUploading] = useState(false);

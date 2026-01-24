@@ -27,7 +27,7 @@ function TodoHome() {
             setEmail(userData.email);
 
             // GET CURRENT TASKS
-            const curr = await fetch(`http://localhost:3000/mern-revision/v1/get/current-tasks?email=${userData.email}`);
+            const curr = await fetch(`http://localhost:3000/codesy/v1/get/current-tasks?email=${userData.email}`);
             const curr_res = await curr.json();
             setTodolist({ task: "" }); // keep input safe
 
@@ -37,7 +37,7 @@ function TodoHome() {
             }
 
             // GET COMPLETED TASKS
-            const comp = await fetch(`http://localhost:3000/mern-revision/v1/get/all-completed-tasks?email=${userData.email}`);
+            const comp = await fetch(`http://localhost:3000/codesy/v1/get/all-completed-tasks?email=${userData.email}`);
             const comp_res = await comp.json();
 
             if (comp_res.success) {
@@ -79,7 +79,7 @@ function TodoHome() {
         // }
         
 
-        await fetch("http://localhost:3000/mern-revision/v1/add-new-task", {
+        await fetch("http://localhost:3000/codesy/v1/add-new-task", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
@@ -104,7 +104,7 @@ function TodoHome() {
 
         dispatch(deletetask({ index, percentage, completedAt }));
 
-        await fetch("http://localhost:3000/mern-revision/v1/put/move-task-to-completed", {
+        await fetch("http://localhost:3000/codesy/v1/put/move-task-to-completed", {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json",
@@ -135,7 +135,7 @@ function TodoHome() {
     // ==========================
     async function DeleteTheTask() {
         console.log("hhihihihi")
-        await fetch("http://localhost:3000/mern-revision/v1/put/delete-current-task", {
+        await fetch("http://localhost:3000/codesy/v1/put/delete-current-task", {
             method: "PUT",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({

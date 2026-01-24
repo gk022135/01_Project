@@ -81,4 +81,12 @@ router.post('/add-pyq', AddPyq);
 
 // router.get('/get-all-tasks/:email',Alltasks)
 
+
+//reset password routes
+const ResetPasswordCtrl = require('../Controllers/auth/reset-password');
+const ResetPassVarifyCtrl = require('../Controllers/auth/reset-pass-varify');
+
+router.post('/reset-password/', ResetPasswordCtrl);
+router.post('/reset-password-verify', ResetPassVarifyCtrl);
+
 module.exports = router;

@@ -38,6 +38,8 @@ const UserSchema = new mongoose.Schema({
     email: { type: String, required: true },
     password: { type: String, required: true },
     role: { type: String, required: true },
+    image: { type: String, default: "" },
+    googleId: { type: String, default: null },
 
     userPost: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
 

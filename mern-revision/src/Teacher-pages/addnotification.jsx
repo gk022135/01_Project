@@ -13,7 +13,7 @@ function NotificationManager() {
   const [showNotifications, setShowNotifications] = useState(false);
   const [error, setError] = useState("");
 
-  const url = "http://localhost:3000/mern-revision/v1/notification";
+  const url = "http://localhost:3000/codesy/v1/notification";
 
   // Load notifications on mount
   useEffect(() => {

@@ -16,6 +16,7 @@ const putrouter = require('./Routes/PutRoute');
 const websocket_connection = require('./Controllers/web-socket/conncetion');
 const upgradeHttpToWebSocket = require('./Controllers/web-socket/http-to-ws')
 const http = require('http');
+const passport = require('./Configs/passport').default;
 
 dotenv.config();
 
@@ -37,9 +38,14 @@ app.use(bodyParser.json());
 app.use(cookieParser());
 
 // Routes
-app.use('/mern-revision/v1', route);
-app.use('/mern-revision/v1/get', getRoute);
-app.use('/mern-revision/v1/put', putrouter);
+app.use('/codesy/v1', route);
+app.use('/codesy/v1/get', getRoute);
+app.use('/codesy/v1/put', putrouter);
+
+
+//OAuth with Google
+app.use(passport.initialize());
+app.use('/codesy/v1/auth/oauth', require('./Controllers/auth/oAuth-route').default);
 
 app.get('/hello', (req, res) => {
   console.log("hi all fine bro");

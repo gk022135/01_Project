@@ -29,7 +29,7 @@ export default function SearchFunction() {
         try {
             setLoading(true);
             const res = await fetch(
-                `http://localhost:3000/mern-revision/v1/get/search-posts?q=${searchText}`
+                `http://localhost:3000/codesy/v1/get/search-posts?q=${searchText}`
             );
             const data = await res.json();
 

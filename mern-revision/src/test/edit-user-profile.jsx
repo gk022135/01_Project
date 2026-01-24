@@ -80,7 +80,7 @@ function UpdateProfile() {
                 skills: skillsArray.length > 0 ? skillsArray : existingData.skills || [],
             };
 
-            const response = await fetch(`http://localhost:3000/mern-revision/v1/put/update-user-profile?email=${userData.email}`, {
+            const response = await fetch(`http://localhost:3000/codesy/v1/put/update-user-profile?email=${userData.email}`, {
                 method: "PUT",
                 credentials: "include",
                 headers: {

@@ -5,7 +5,7 @@ const API = "http://localhost:3000";
 
 // API functions
 const addPyq = async (data) => {
-    const res = await fetch(`${API}/mern-revision/v1/add-pyq`, {
+    const res = await fetch(`${API}/codesy/v1/add-pyq`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data)
@@ -14,7 +14,7 @@ const addPyq = async (data) => {
 };
 
 const fetchPyqs = async () => {
-    const res = await fetch(`${API}/mern-revision/v1/get/get-all-pyq`);
+    const res = await fetch(`${API}/codesy/v1/get/get-all-pyq`);
     return res.json();
 };
 

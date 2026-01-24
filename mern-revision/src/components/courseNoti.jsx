@@ -10,7 +10,7 @@ export default function CourseNotification({ courseCode }) {
   const fetchNotifications = async () => {
     try {
       const res = await fetch(
-        `http://localhost:3000/mern-revision/v1/get/course-notifications/${courseCode}`
+        `http://localhost:3000/codesy/v1/get/course-notifications/${courseCode}`
       );
       const data = await res.json();
       setNotifications(data.notifications || []);

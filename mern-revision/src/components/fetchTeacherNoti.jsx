@@ -10,7 +10,7 @@ export default function TeacherNotifications({ email }) {
   const fetchNotifications = async () => {
     try {
       const res = await fetch(
-        `http://localhost:3000/mern-revision/v1/get/teacher-notifications/${email}`
+        `http://localhost:3000/codesy/v1/get/teacher-notifications/${email}`
       );
       const data = await res.json();
       setNotifications(data.notifications || []);

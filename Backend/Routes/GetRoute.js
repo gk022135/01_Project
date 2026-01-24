@@ -11,6 +11,8 @@ const AllEntries = require('../Controllers/AllEntries')
 const SingleClassDetail = require('../Controllers/Student/SingleClassDetails')
 const VarifyLocation = require('../Controllers/Student/VarifyLocation')
 const getDailyActivityHeatmap = require('../Controllers/Student/DailyTrack').getDailyActivityHeatmap;
+const { getUserProfile } = require('../Controllers/Student/user');
+
 
 
 //teacher Imports
@@ -70,6 +72,7 @@ getrouter.get("/search-posts", SearchPosts);
 getrouter.get('/get-single-class-details',SingleClassDetail);
 getrouter.get('/get-varify-location', VarifyLocation);
 getrouter.get('/activity/daily', getDailyActivityHeatmap);
+getrouter.get('/my-profile', getUserProfile)
 
 
 //pyq
@@ -81,7 +84,7 @@ getrouter.get('/get-all-pyq', GetAllPyq);
 
 
 //TODO GET ROUTES
- const  {CompletedTask, GetAllTask } = require('../Controllers/Todo-backend/todo-all')
+ const  {CompletedTask, GetAllTask } = require('../Controllers/Todo-backend/todo-all');
  getrouter.get('/current-tasks',GetAllTask);
  getrouter.get('/all-completed-tasks',CompletedTask);
 

@@ -17,7 +17,7 @@ export default function NotificationManager() {
   const userData = JSON.parse(localStorage.getItem("UserData") || "{}");
   const teacherEmail = userData?.email || "";
 
-  const url = "http://localhost:3000/mern-revision/v1/teacher-notification";
+  const url = "http://localhost:3000/codesy/v1/teacher-notification";
 
   // Fetch notifications from backend using action=view
   const fetchNotifications = async () => {

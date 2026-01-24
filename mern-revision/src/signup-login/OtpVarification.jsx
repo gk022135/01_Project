@@ -39,7 +39,7 @@ function OtpVerification() {
         setMessage("");
 
         try {
-            const response = await fetch("http://localhost:3000/mern-revision/v1/optvarification", {
+            const response = await fetch("http://localhost:3000/codesy/v1/optvarification", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

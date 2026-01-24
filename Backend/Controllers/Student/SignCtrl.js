@@ -25,16 +25,17 @@ const SignupCtrl = async (req, res) => {
 
     // Generate OTP
     const otp = GeneratedOtp();
+    console.log("Generated OTP:", otp);
     await client.set(`otp:${email}`, otp);
 
     // Send OTP email
-    const emailSent = await EmailSender(email, otp);
-    if (!emailSent) {
-      return res.status(500).json({
-        message: "Failed to send OTP email",
-        success: false,
-      });
-    }
+    // const emailSent = await EmailSender(email, otp);
+    // if (!emailSent) {
+    //   return res.status(500).json({
+    //     message: "Failed to send OTP email",
+    //     success: false,
+    //   });
+    // }
 
     // Hash password
     const salt = await bcrypt.genSalt(10);

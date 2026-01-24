@@ -16,7 +16,7 @@ const ContributionGraph = ({ userId }) => {
     const stDate = new Date();
     const edDate = new Date();
 
-    const BASE_URL = "http://localhost:3000/mern-revision/v1"
+    const BASE_URL = "http://localhost:3000/codesy/v1"
 
 
     if (selectedYear == 2025) {

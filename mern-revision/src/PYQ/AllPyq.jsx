@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 const API = "http://localhost:3000"; // FIXED
 
 const fetchPyqs = async () => {
-  const res = await fetch(`${API}/mern-revision/v1/get-all-pyq`);
+  const res = await fetch(`${API}/codesy/v1/get-all-pyq`);
   return res.json();
 };
 

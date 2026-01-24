@@ -74,6 +74,8 @@ import TeacherNavbar from "./components/navbar/teacherNavbar";
 import AddResources from "./Teacher-pages/ResourcesAdd";
 import Attendance from "./Teacher-pages/AttendanceDetails";
 import TeacherProfile from "./Teacher-pages/TeacherProfile";
+import ResetPassword from "./signup-login/reset-password";
+import OAuthSuccess from "./signup-login/oAuthSuccess";
 
 
 function App() {
@@ -150,6 +152,9 @@ function App() {
             <Route element={<HomeLayout />} >
               <Route path="/" element={<LandingPage />} />
               <Route path="/login" element={<Login />} />
+              <Route path="/oauth-success" element={<OAuthSuccess />} />
+              <Route path="/signup" element={<Signup />} />
+              <Route path="/forgot-password" element={<ResetPassword />} />
               <Route path="/otpvarification" element={<Otpvarifiacation />} />
               <Route path='/admin-login' element={<AdminLogin />} />
               <Route path="/administrator-login" element={<SUlogin />} />

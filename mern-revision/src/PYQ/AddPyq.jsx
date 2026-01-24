@@ -4,7 +4,7 @@ import { Loader2 } from 'lucide-react';
 const API = "http://localhost:3000"; // FIXED
 
 const addPyq = async (data) => {
-  const res = await fetch(`${API}/mern-revision/v1/add-pyq`, {
+  const res = await fetch(`${API}/codesy/v1/add-pyq`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(data)

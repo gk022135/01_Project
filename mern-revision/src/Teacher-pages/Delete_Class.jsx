@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { RiDeleteBin5Fill } from "react-icons/ri";
 import { ToastContainer,toast } from "react-toastify";
 
-const BASE_URl = "http://localhost:3000/mern-revision/v1"
+const BASE_URl = "http://localhost:3000/codesy/v1"
 
 function DeleteCourse({ props }) {
 
