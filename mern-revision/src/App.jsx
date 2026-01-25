@@ -76,6 +76,9 @@ import Attendance from "./Teacher-pages/AttendanceDetails";
 import TeacherProfile from "./Teacher-pages/TeacherProfile";
 import ResetPassword from "./signup-login/reset-password";
 import OAuthSuccess from "./signup-login/oAuthSuccess";
+import LeetCodeEditor from "./code_editor/Test";
+import CodingPlatformLayout from "./layouts/codingPlatfromLayout";
+import IndividualProblem from "./Codingplatfrom/IndivisiualProblem";
 
 
 function App() {
@@ -120,18 +123,10 @@ function App() {
               {/* <Route path="/todo-home" element={<TodoHome />} /> */}
               <Route path="/code-editor" element={<Code_editor />} />
 
-
               <Route path="/qrscanner" element={<Qr_res />} />
               <Route path="/pyq" element={<RenderPyq />} />
               <Route path="User-profile" element={<UserProfile />} />
               <Route path="Update" element={<UpdateProfile />} />
-
-
-
-
-
-
-
 
               <Route path="/qrscanner" element={<Qr_res />} />
               <Route path="/all-classes" element={<All_Class />} />
@@ -144,10 +139,6 @@ function App() {
               <Route path="/todo-home" element={<TODOHOME1 />} />
 
             </Route>
-
-
-
-
 
             <Route element={<HomeLayout />} >
               <Route path="/" element={<LandingPage />} />
@@ -191,7 +182,10 @@ function App() {
               <Route path="/aluminies" element={<LandingPageAlumni />} />
             </Route>
 
-
+            <Route path="/coding" element={<CodingPlatformLayout />}>
+              <Route index element={<Code_editor />} />
+               <Route path="layout" element={<IndividualProblem problemId='green' />} />
+            </Route>
 
 
             <Route path="/quiz" element={<QuizBuilder />} />
@@ -212,6 +206,8 @@ function App() {
 
 
             <Route path="/popcomp" element={<PopComponent />} />
+            <Route path="/leet" element={<LeetCodeEditor />}/>
+           
 
 
 

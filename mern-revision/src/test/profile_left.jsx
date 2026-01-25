@@ -19,6 +19,7 @@ function ProfileLeft({ userId }) {
       try {
         const res = await fetch(`${Base_Url}/get/my-profile`, {
           credentials: "include",
+          
         });
         const data = await res.json();
         if (data.success) setUserData(data.data);
