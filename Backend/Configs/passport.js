@@ -1,10 +1,10 @@
-import passport from "passport";
+const passport = require("passport");
 
 // importing strategy = registering it
-import "./google.strategy.js";
+require("./google.strategy.js");
 
 // optional: future strategies
-// import "./jwt.strategy.js";
-// import "./github.strategy.js";
+// require("./jwt.strategy.js");
+// require("./github.strategy.js");
 
-export default passport;
+module.exports = passport;

@@ -4,9 +4,20 @@ import jwt from "jsonwebtoken";
 
 const Oauth_router = express.Router();
 
+const googleOAuthEnabled = Boolean(process.env.GOOGLE_CLIENT_ID && process.env.GOOGLE_CLIENT_SECRET);
+
 //  STEP 1: frontend hits this
 Oauth_router.get(
   "/google",
+  (req, res, next) => {
+    if (!googleOAuthEnabled) {
+      return res.status(503).json({
+        message: "Google OAuth is not configured on this server.",
+      });
+    }
+
+    return next();
+  },
   passport.authenticate("google", {
     scope: ["profile", "email"],
   })
@@ -15,6 +26,15 @@ Oauth_router.get(
 // STEP 2: Google redirects HERE
 Oauth_router.get(
   "/google/callback",
+  (req, res, next) => {
+    if (!googleOAuthEnabled) {
+      return res.status(503).json({
+        message: "Google OAuth is not configured on this server.",
+      });
+    }
+
+    return next();
+  },
   passport.authenticate("google", {
     session: false,
     failureRedirect: "/login-failed",

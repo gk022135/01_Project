@@ -1,4 +1,6 @@
 const dotenv = require('dotenv');
+dotenv.config();
+
 const express = require('express');
 const bodyParser = require('body-parser');
 const cookieParser = require("cookie-parser");
@@ -16,9 +18,7 @@ const putrouter = require('./Routes/PutRoute');
 const websocket_connection = require('./Controllers/web-socket/conncetion');
 const upgradeHttpToWebSocket = require('./Controllers/web-socket/http-to-ws')
 const http = require('http');
-const passport = require('./Configs/passport').default;
-
-dotenv.config();
+const passport = require('./Configs/passport');
 
 const app = express();
 const server = http.createServer(app); //Shared HTTP server for both Express and WebSocket
@@ -58,9 +58,14 @@ server.listen(3000, () => {
 });
 
 // MongoDB and Cloudinary
-const URL = process.env.MONGO_URL;
-console.log("MongoDB URL:", URL);
-DB_connect(URL);
+const URL = process.env.MONGO_URL || process.env.MONGODB_URI;
+
+if (URL) {
+  console.log("MongoDB URL configured.");
+  DB_connect(URL);
+} else {
+  console.warn("MongoDB is not configured: set MONGO_URL or MONGODB_URI to enable database access.");
+}
 clodinaryConnect();
 
 
