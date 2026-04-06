@@ -137,6 +137,7 @@ function App() {
 
             <Route element={<HomeLayout />} >
               <Route path="/" element={<LandingPage />} />
+              <Route path="/signup" element={<Signup />} />
               <Route path="/login" element={<Login />} />
               <Route path="/otpvarification" element={<Otpvarifiacation />} />
               <Route path='/admin-login' element={<AdminLogin />} />

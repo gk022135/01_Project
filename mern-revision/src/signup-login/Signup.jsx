@@ -1,30 +1,33 @@
-import { useContext, useState } from "react";
-import { AppContext } from "../ContextApi/FisrtContext";
+import { useState } from "react";
 
 import SignupTeacher from "./signup-teacher";
 import SignupStudent from "./singup-student";
 
 
 function Signup() {
-  const [teacher, setTeacher] = useState(true);
-
-  const { loading } = useContext(AppContext);
+  const [isStudentMode, setIsStudentMode] = useState(true);
 
   return (
-    <div className="flex flex-col items-center gap-6">
+    <div className="flex flex-col items-center gap-6 bg-base-100 py-6">
       {/* Toggle Switch */}
-      <div className="flex border rounded-full overflow-hidden bg-white/10 shadow-lg">
+      <div className="join rounded-2xl border border-base-content/20 bg-base-200/70 p-1 shadow-xl">
         <button
-          onClick={() => setTeacher(false)}
-          className={`px-6 py-2 text-sm font-semibold transition-all duration-300 
-        ${teacher&& 'bg-gradient-to-r from-green-400 to-lime-500 text-black'}`}
+          onClick={() => setIsStudentMode(false)}
+          className={`join-item btn btn-sm border-none px-6 ${
+            !isStudentMode
+              ? "bg-gradient-to-r from-primary to-secondary text-white"
+              : "bg-transparent text-base-content/70"
+          }`}
         >
           Teacher
         </button>
         <button
-          onClick={() => setTeacher(true)}
-          className={`px-6 py-2 text-sm font-semibold transition-all duration-300 
-        ${!teacher && 'bg-gradient-to-r from-green-400 to-lime-500 text-black'}`}
+          onClick={() => setIsStudentMode(true)}
+          className={`join-item btn btn-sm border-none px-6 ${
+            isStudentMode
+              ? "bg-gradient-to-r from-primary to-secondary text-white"
+              : "bg-transparent text-base-content/70"
+          }`}
         >
           Student
         </button>
@@ -32,7 +35,7 @@ function Signup() {
 
       {/* Conditional Component */}
       <div className="w-full">
-        {teacher ? <SignupTeacher /> : <SignupStudent />}
+        {isStudentMode ? <SignupStudent /> : <SignupTeacher />}
       </div>
     </div>
 
